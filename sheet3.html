@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sheet #3</title>
+  </head>
+  <body>
+    <h1>Coronavirus Intake Form for attend class</h1>
+    <p>
+      For all of our safety, please fill this out 24 hours prior to each class
+      (util further notice). Be sure that the information you'll give is
+      accurate and complete. Please get immediate medical attention if you have
+      any of the severe COVID-19 signs.
+    </p>
+    <form action="/result.html" target="_blank">
+      <fieldset>
+        <legend>Personal information:</legend>
+        <label for="fname">First name:</label><br />
+        <input type="text" id="fname" name="fname" required /><br /><br />
+        <label for="lname">Last name:</label><br />
+        <input type="text" id="lname" name="lname" maxlength="6" /><br /><br />
+        <label for="Phone">Phone:</label><br />
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          autocomplete="off"
+        /><br /><br />
+        <label for="birthday">Date of Birth:</label><br />
+        <input
+          type="date"
+          id="birthday"
+          name="birthday"
+          max="2003-01-01"
+        /><br /><br />
+        <label for="email">Email:</label><br />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          autocomplete="off"
+        /><br /><br />
+
+        <p>Do you have " توكلنا - تباعد - تطمن " Apps in your phone:</p>
+
+        <input type="radio" id="yes1" name="ra" value="yes" required />
+        <label for="yes1">Yes</label>
+        <input type="radio" id="no1" name="ra" value="no" />
+        <label for="no">No</label><br />
+      </fieldset>
+
+      <br />
+      <fieldset>
+        <legend>Class information</legend>
+        <label for="classes">Choose class</label>
+        <select name="classes" id="classes">
+          <br />
+          <option value="204IT">204 IT: Web programming</option>
+          <option value="201cs">201 cs:progamming 1</option>
+          <option value="202cs">202 cs: programming 2</option>
+          <option value="412cs">412 cs:computer ethic</option>
+        </select>
+        <p>please explain why you need to attend lab</p>
+        <textarea name="textarea" id="textarea1" cols="30" rows="10"></textarea>
+      </fieldset>
+      <br />
+      <br />
+
+      <fieldset>
+        <legend>Health information</legend>
+        <label for="healthy">How healthy do you feel in general?</label><br />
+        0 <input type="range" id="healthy" name="healthy" min="0" max="10" /> 10
+        <br />
+        <p>Check the symptoms thatyou have experienced in PAST Week:</p>
+        <input type="checkbox" id="check1" name="check1" value="Fever/Chills" />
+        <label for="check1"> Fever/Chills</label><br />
+
+        <input type="checkbox" id="check2" name="check2" value="Headaches" />
+        <label for="check2"> Headaches</label><br />
+
+        <input type="checkbox" id="check3" name="check3" value="Coughing" />
+        <label for="check3"> Coughing</label><br />
+
+        <input
+          type="checkbox"
+          id="check4"
+          name="check4"
+          value="Shortness of breath"
+        />
+        <label for="check4"> Shortness of breath</label><br />
+
+        <input type="checkbox" id="check5" name="check5" value="loss smell" />
+        <label for="check5"> Recent loss of sense of smell or taste</label
+        ><br /><br />
+      </fieldset>
+      <br /><br />
+      <input type="submit" value="Send" />
+      <br />
+    </form>
+  </body>
+</html>
