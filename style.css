@@ -1,8 +1,9 @@
 /* Add picture as background in the top right in your pages */
 body {
     background-position: top right;
-    background-image: url("img.jpg");
+    background-image: url("img1.jpg");
     background-repeat: no-repeat;
+    
 }
 
 /* Change the color of heading */
