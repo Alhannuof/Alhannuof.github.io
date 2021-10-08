@@ -1,0 +1,111 @@
+/* Add picture as background in the top right in your pages */
+body {
+    background-position: top right;
+    background-image: url("img_tree.jpg");
+    background-repeat: no-repeat;
+}
+
+/* Change the color of heading */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: cadetblue;
+}
+
+/* Set the list style for unordered lists to "square" */
+ul {
+    list-style-type: square;
+}
+
+/* the list style for ordered lists to "upperroman */
+ol {
+    list-style-type: upper-roman;
+}
+
+/* set the nested list style for ordered lists to "lowerroman" */
+ol ol {
+    list-style-type: lower-roman;
+}
+
+/* links */
+/* Remove underlines for visited and unvisited links*/
+
+/* unvisited link */
+/* Set the color red for unvisited  */
+a:link {
+    text-decoration: none;
+    color: red;
+}
+
+/* visited link */
+/* blue for visited links */
+a:visited {
+    text-decoration: none;
+    color: blue;
+}
+
+/* specify "underline"for the hover and active link states */
+
+/* hover */
+/* green for hover */
+a:hover {
+    text-decoration: underline;
+    color: green;
+}
+
+/* active */
+/* black for active link. */
+a:active {
+    text-decoration: underline;
+    color: black;
+}
+
+/* paragraph change the size and font and color make different style for different class */
+
+/* class sheet1 style */
+.sheet1,
+p {
+    size: 14pt;
+    font: 300px;
+    ;
+    color: coral;
+}
+
+/* For heading in sheet 1 add border to all h1 and change padding and margin */
+.sheet1,
+h1 {
+    border: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* class sheet2 style */
+.sheet2,
+p {
+    size: 16pt;
+    font: 400px;
+    color: blueviolet;
+}
+
+/* class sheet3 style */
+.sheet3,
+p {
+    size: 21pt;
+    font: 500px;
+    color: burlywood;
+}
+
+
+thead {
+    text-align: center;
+    font-weight: bold;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
