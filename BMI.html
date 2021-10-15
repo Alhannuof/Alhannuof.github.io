@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      function calBMI() {
+        // selecting and storing values from input
+        var weight = parseInt(document.getElementById("Weight").value);
+        var height = parseInt(document.getElementById("Height").value);
+        // formula
+        var res = weight / (height * height);
+        var message = "";
+
+        // if the res number < 18.5
+        if (res < 18.5) {
+          message = "Your BMI: That you are Underweight.";
+        }
+        // if the res number  18.5 < res < 24.9
+        else if (res < 24.9) {
+          message = "Your BMI: That you are Helthyweight.";
+        }
+        // if the res number  25 < res < 24.9
+        else if (res < 29.9) {
+          message = "Your BMI: That you are Overweight.";
+        }
+        // updating the element with result
+        document.getElementById("bmi").innerHTML = "Your BMI: " + res;
+        document.getElementById("result").innerHTML = "This Means: " + message;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>BMI calculator create Using JavaScript</h1>
+    <label for="weight">Your Weight(kg):</label><br />
+    <input type="number" id="Weight" /><br /><br />
+    <label for="Height">Your Height(cm):</label><br />
+    <input type="number" id="Height" /><br /><br />
+    <button onclick="calBMI()">Calculate BMI</button>
+    <p id="bmi">Your BMI:</p>
+    <p id="result">This Means: Your BMI:</p>
+  </body>
+</html>
