@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .dark-mode {
+        background-color: black;
+        color: white;
+      }
+      .lite-mode {
+        background-color: white;
+        color: black;
+      }
+    </style>
+
+    <script>
+      function darkMode() {
+        var element = document.body;
+        element.classList.remove("lite-mode");
+        element.classList.add("dark-mode");
+      }
+      function liteMode() {
+        var element = document.body;
+        element.classList.remove("dark-mode");
+        element.classList.add("lite-mode");
+      }
+    </script>
+  </head>
+  <body>
+    <button type="button" onclick="darkMode()"> dark mode</button>
+    <button type="button" onclick="liteMode()"> lite mode</button>
+    <h1>This is heading1</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti adipisci
+      doloribus esse cumque eius perspiciatis laudantium, tempora nemo enim nam
+      ad molestias iusto doloremque perferendis possimus. Ex quis rerum natus.
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, repellat
+      iure tenetur ipsum molestiae iste. Suscipit, quae provident! Tempore
+      magnam dignissimos corporis pariatur deleniti sequi sit error velit rem
+      ratione?
+    </p>
+  </body>
+</html>
