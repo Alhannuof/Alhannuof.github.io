@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Sign UP</h1>
+    <form name="vForm_me" action="/" onsubmit="vForm()" method="post">
+      Name: <input type="text" name="fname"> <br>
+      user name: <input type="text" name="uname"> <br>
+      Password:<input type="password" name="mpass"> <br>
+      Confirm Password:<input type="password" name="cpass"><br>
+      <input type="submit" value="Submit">
+    </form>
+
+    <script>
+      void function vForm() {
+        var letter = /^[A-Za-z]+$/;
+        var lpass = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/;
+        let fname = document.forms["vForm_me"]["fname"].value;
+        let uname = document.forms["vForm_me"]["uname"].value;
+        let mpass = document.forms["vForm_me"]["mpass"].value;
+        let cpass = document.forms["vForm_me"]["cpass"].value;
+
+        if (fname.match(letter)) {
+          alert("Name must be leeter only");
+        }
+
+        if (uname == "") {
+          alert("Name must be not empty");
+        }
+
+        if (
+          mpass.length() >= 6 &&
+          mpass.length() <= 10 &&
+          mpass != uname &&
+          mpass.match(lpass)
+        ) {
+          alert(
+            "pass Should be 6- 10 length,Al least one small letter and one capital letter and one digit,Should not the same of user-name"
+          );
+        }
+
+        if (mpass == cpass) {
+          alert("Confirm Password: should equal to password");
+        }
+      };
+    </script>
+  
+
+</body></html>
