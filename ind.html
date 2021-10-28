@@ -1,56 +1,82 @@
-
 <!DOCTYPE html>
-
 <html lang="en">
-    <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
     <title>Document</title>
+    <style>
+      .e {
+        color: red;
+      }
+    </style>
+    <script>
+      function hanoofForm() {
+        var r = true;
+        var fname = document.getElementById("name").value;
+        var uname = document.getElementById("username").value;
+        var mpass = document.getElementById("pass").value;
+        var cpass = document.getElementById("pass2").value;
+        var regEx = /^[A-Za-z]+$/;
+        var regEx2 = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/;
+
+        //name should contain only letter
+        if (!fname.match(regEx)) {
+          document.getElementById("e1").innerHTML = "* only letter is allowed";
+          document.getElementById("name").style.borderColor = "red";
+          r = false;
+        } else {
+          document.getElementById("e1").innerHTML = " ";
+          document.getElementById("name").style.borderColor = "black";
+        }
+
+        // Name must be not empty
+        if (uname != "") {
+          document.getElementById("e1").innerHTML = " ";
+          document.getElementById("uname").style.borderColor = "black";
+        } else {
+          document.getElementById("e1").innerHTML =
+            "* User Name must be not empty";
+          document.getElementById("uname").style.borderColor = "red";
+          r = false;
+        }
+
+        // pass Should be 6- 10 length,Should not the same of user-name
+        if (mpass.length() >= 6 && mpass.length() <= 10) {
+          // Al least one small letter and one capital letter and one digit, Should not the same of user-name
+          if (!mpass.match(regEx2) && !mpass.match(uname)) {
+            document.getElementById("e1").innerHTML =
+              "*pass Should be 6- 10 length,Should not the same of user-name, Al least one small letter and one capital letter and one digit,";
+            document.getElementById("mpass").style.borderColor = "red";
+            r = false;
+          } else {
+            document.getElementById("e1").innerHTML = " ";
+            document.getElementById("mpass").style.borderColor = "black";
+          }
+        }
+
+        //  should equal to password
+        if (!mpass.match(cpass)) {
+          document.getElementById("e1").innerHTML = "*should equal to password";
+          document.getElementById("cpass").style.borderColor = "red";
+          r = false;
+        } else {
+          document.getElementById("e1").innerHTML = " ";
+          document.getElementById("cpass").style.borderColor = "black";
+        }
+
+        return r;
+      }
+    </script>
   </head>
   <body>
-    <h1>Sign UP</h1>
-    <form name="vForm_me" action="/" onsubmit="vForm()" method="post">
-      Name: <input type="text" name="fname"> <br>
-      user name: <input type="text" name="uname"> <br>
-      Password:<input type="password" name="mpass"> <br>
-      Confirm Password:<input type="password" name="cpass"><br>
-      <input type="submit" value="Submit">
+    <h1>SIGN UP</h1>
+    <form onsubmit="return hanoofForm()">
+      Full name:
+      <input type="text" id="name" /><span id="e1"></span><br /><br />
+      User Name:
+      <input type="text" id="username" /> <br /><br />
+      password:
+      <input type="password" id="pass" /> <br /><br />
+      Confrim password: <input type="password" id="pass2" /><br /><br />
+      <input type="submit" value="SIGN UP" />
     </form>
-
-    <script>
-      void function vForm() {
-        var letter = /^[A-Za-z]+$/;
-        var lpass = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/;
-        let fname = document.forms["vForm_me"]["fname"].value;
-        let uname = document.forms["vForm_me"]["uname"].value;
-        let mpass = document.forms["vForm_me"]["mpass"].value;
-        let cpass = document.forms["vForm_me"]["cpass"].value;
-
-        if (fname.match(letter)) {
-          alert("Name must be leeter only");
-        }
-
-        if (uname == "") {
-          alert("Name must be not empty");
-        }
-
-        if (
-          mpass.length() >= 6 &&
-          mpass.length() <= 10 &&
-          mpass != uname &&
-          mpass.match(lpass)
-        ) {
-          alert(
-            "pass Should be 6- 10 length,Al least one small letter and one capital letter and one digit,Should not the same of user-name"
-          );
-        }
-
-        if (mpass == cpass) {
-          alert("Confirm Password: should equal to password");
-        }
-      };
-    </script>
-  
-
-</body></html>
+  </body>
+</html>
