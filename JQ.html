@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+      .lite-mode {
+        background-color: white;
+        color: black;
+      }
+
+      .dark-mode {
+        background-color: black;
+        color: white;
+      }
+    </style>
+
+    <script>
+      $(document).ready(function () {
+        $("button").click(function () {
+          $("body , h1, p").toggleClass("dark-mode");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button type="button">
+     Dark mode
+    </button>
+    <h1>This is heading1</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti adipisci
+      doloribus esse cumque eius perspiciatis laudantium, tempora nemo enim nam
+      ad molestias iusto doloremque perferendis possimus. Ex quis rerum natus.
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, repellat
+      iure tenetur ipsum molestiae iste. Suscipit, quae provident! Tempore
+      magnam dignissimos corporis pariatur deleniti sequi sit error velit rem
+      ratione?
+    </p>
+  </body>
+</html>
