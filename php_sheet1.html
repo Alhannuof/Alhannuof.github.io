@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign-up</title>
+  </head>
+  <body>
+    <div>
+      <form action="welcome1.php" method="post">
+        <h2>Sign Up</h2>
+        <span id="err1"></span>
+        <input type="text" name="Uname" placeholder="Username" required />
+        <span>* <?php echo $UnameErr;?></span>
+        <br />
+        <input type="text" name="fname" placeholder="Full name" required />
+        <span>* <?php echo $fnameErr;?></span>
+        <br />
+
+        <input type="email" name="email" placeholder="Email" required />
+        <span>* <?php echo $emailErr;?></span>
+        <br />
+
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <span>* <?php echo $passErr;?></span>
+        <br />
+
+        <input
+          type="password"
+          name="co_password"
+          placeholder="Confirm password"
+          required
+        />
+        <span>* <?php echo $CpassErr;?></span>
+        <br />
+        <button type="submit">Sign up</button>
+      </form>
+
+      <script>
+        document.getElementById("err1").innerHTML = "<?php echo $errormsg;?>";
+      </script>
+
+      <!-- make connection to DB from connectDB.php file   -->
+      <?php 
+      include('connectDB.php');?>
+
+      <?php 
+      // create a variables and make it empty 
+
+      $Username = $fullname = $email = $password = $co_password = "";
+
+      // check the input values 
+      if($_SERVER["REQUEST_METHOD"]=="POST"){ 
+      $Username =test_input($_POST["Uname"]);
+      $fullname = test_input($_POST["fname"]);
+      $email = test_input($_POST["email"]); 
+      $password = test_input($_POST["password"]);
+      $co_password = test_input($_POST["co_password"]);
+      
+      if(empty($Username)){
+        $errormsg = 'field is required';
+        $UnameErr = 'Username is required';
+      }
+
+      if(empty($fullname)){
+        $errormsg = 'field is required';
+        $fnameErr = 'Full name is required';
+      }else{
+        if(!preg_match("/^[a-zA-Z-' ]*$/ ",$fullname))
+        {
+        $errormsg = 'field is required';
+        $emailErr = 'Only letters and white space allowed';
+        }
+      }
+      
+      if(empty($password) || $password == $Username){
+        $errormsg = 'field is required';
+        $passErr = 'password is required, password must be not same username';
+      }else{
+        if(!preg_match("/^[a-zA-Z-' ]*$/ ",$password))
+        {
+        $errormsg = 'field is required';
+        $passErr = 'Only letters and white space allowed';
+        }
+      }
+
+      if(empty($co_password)){
+        $errormsg = 'field is required';
+        $cpassErr = 'confirm password is required';
+      }else{
+        if($password != $co_password){
+          $errormsg = 'field is required';
+          $cpassErr = 'confirm password is not equal to password';
+        }
+      }
+
+      $sql="INSERT INTO webuser (uname,fname, email,password) 
+      VALUES ('$Username','$fullname','$email','$password') ";
+
+      //check insertion state from DB
+      
+      if(mysqli_query($conn, $sql)){
+          echo "New record created successfully";
+          header("Refresh:1;url=welcome1.php");
+      }else{
+        if(mysqli_error($conn)=="Duplication entry'".$Username."' for key 'PRIMARY' " )
+        {
+            $errormsg="Username is not available ";
+        }
+      }
+
+    function test_input($data){
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
+    ?>
+    </div>
+  </body>
+</html>
